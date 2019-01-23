@@ -106,8 +106,16 @@ exports.doLogin=(req,res)=>{
                 result.status=2,
                 result.message='账号或者密码错误'
             }
+            req.session.username=username            
             res.json(result)
         })
         client.close();
       });
+}
+exports.logout=(req,res)=>{
+    // 删除session
+  req.session.username = null
+
+  // 要浏览器跳转登录页面
+  res.send('<script>location.href="/account/login"</script>')
 }

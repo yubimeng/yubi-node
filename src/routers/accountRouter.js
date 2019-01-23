@@ -20,7 +20,8 @@ accountRouter.get('/login',accountController.getLoginPage)
 accountRouter.post('/login',accountController.doLogin)
 //处理图片获取请求
 accountRouter.get('/scode',accountController.getScode)
-
+//退出账号
+accountRouter.get('/logout',accountController.logout)
 
 
 module.exports=accountRouter

@@ -24,7 +24,8 @@ exports.getstudentPage = (req, res) => {
 
     const html = template(path.join(__dirname, '../public/views/list.html'), {
       students: docs,
-      keyword
+      keyword,
+      username:req.session.username
     })
     res.send(html)
   })
@@ -32,7 +33,9 @@ exports.getstudentPage = (req, res) => {
 //获取学生添加页面
 exports.getaddPage = (req, res) => {
   var html = template(path.join(__dirname, '../public/views/add.html'), {})
-  res.send(html)
+  var html1=template(path.join(__dirname,'../public/views/parents.html'),{username})
+  
+  res.send({html,html1})
 }
 
 //学生添加功能
