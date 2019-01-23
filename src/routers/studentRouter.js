@@ -6,7 +6,13 @@ const studentRouter=express.Router()
 //导入控制台
 const studentController=require(path.join(__dirname,'../controllers/studentController'))
 
-studentRouter.get('/manager',studentController.getstudentPage)
+studentRouter.get('/list',studentController.getstudentPage)
+studentRouter.get('/list/:id',studentController.deleteStudent)
+studentRouter.get('/edit/:id',studentController.editStudent)
+studentRouter.post('/edit/:id',studentController.updatestudent)
+studentRouter.get('/add',studentController.getaddPage)
+studentRouter.post('/add',studentController.doAddStudent)
+
 
 
 
